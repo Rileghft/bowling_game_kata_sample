@@ -47,6 +47,18 @@ namespace BowlingGameKata
                 (10 + 1 + 1) + (1 + 1)* 9));
         }
 
+        [Test]
+        public void OneSpare()
+        {
+            List<int> pins = new List<int> 
+            {
+                5,5,  1,1,  1,1,  1,1,  1,1, 
+                1,1,  1,1,  1,1,  1,1,  1,1 
+            };
+
+            Assert.That(Game.GetScore(pins), Is.EqualTo(
+                (5+5+1) + (1 + 1) * 9));
+        }
 
     }
 }

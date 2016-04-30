@@ -12,15 +12,39 @@ namespace BowlingGameKata
         public static int GetScore(List<int> pins)
         {
             int score = 0;
-            for (int i = 0; i < pins.Count;i++ )
+            for (int i = 0; i < 10 ;i++ )
             {
-                if (pins[i] == 10)
-                    score = pins[i] + pins[i + 2] + pins[i + 3];
-                else
-                    score += pins[i];
+           
+                IsStrike(pins,2*i,ref score);
+                IsSpare(pins, 2 * i, ref score);
+                //else if(pins[2*i]+pins[2*i+1]==10)
+                score += pins[2*i]+pins[2*i+1];
+            }
+            
+            return score;
+        }
+
+        public static void IsStrike(List<int> pins, int index,ref int score)
+        { 
+            if(pins[index]==10)
+            {
+                int nextindex=(index%2==0) ? index+2 : index+1;
+                score += pins[nextindex] + pins[nextindex + 1];
+            }
+               
+        }
+
+        public static void IsSpare(List<int> pins, int index, ref int score)
+        {
+            int FirstPin = pins[index];
+            int SecondPin = pins[index + 1];
+            if (FirstPin != 10 && SecondPin != 10 &&
+                FirstPin + SecondPin == 10)
+            {
+                int nextindex = (index % 2 == 0) ? index + 2 : index + 1;
+                score += pins[nextindex];
             }
 
-            return score;
         }
     }
 }
