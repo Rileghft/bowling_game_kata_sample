@@ -13,11 +13,17 @@ namespace BowlingGameKata
         [Test]
         public void AllZero()
         {
-            List<int> pins = new List<int> 
-            {
-                0,0,  0,0,  0,0,  0,0,  0,0,
-                0,0,  0,0,  0,0,  0,0,  0,0
-            };
+            List<List<int>> pins = new List<List<int>>(10);
+            pins.Add(new List<int> { 0, 0 });
+            pins.Add(new List<int> { 0, 0 });
+            pins.Add(new List<int> { 0, 0 });
+            pins.Add(new List<int> { 0, 0 });
+            pins.Add(new List<int> { 0, 0 });
+            pins.Add(new List<int> { 0, 0 });
+            pins.Add(new List<int> { 0, 0 });
+            pins.Add(new List<int> { 0, 0 });
+            pins.Add(new List<int> { 0, 0 });
+            pins.Add(new List<int> { 0, 0 });
 
             Assert.That(Game.GetScore(pins), Is.EqualTo(0));
         }
@@ -25,11 +31,17 @@ namespace BowlingGameKata
         [Test]
         public void AllOnes()
         {
-            List<int> pins = new List<int> 
-            {
-                1,1,  1,1,  1,1,  1,1,  1,1, 
-                1,1,  1,1,  1,1,  1,1,  1,1 
-            };
+            List<List<int>> pins = new List<List<int>>(10);
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
 
             Assert.That(Game.GetScore(pins), Is.EqualTo((1+1)*10));
         }
@@ -37,11 +49,17 @@ namespace BowlingGameKata
         [Test]
         public void OneStrike()
         {
-            List<int> pins = new List<int> 
-            {
-                10,0,  1,1,  1,1,  1,1,  1,1, 
-                1,1,   1,1,  1,1,  1,1,  1,1 
-            };
+            List<List<int>> pins = new List<List<int>>(10);
+            pins.Add(new List<int> { 10 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
 
             Assert.That(Game.GetScore(pins), Is.EqualTo(
                 (10 + 1 + 1) + (1 + 1)* 9));
@@ -50,14 +68,40 @@ namespace BowlingGameKata
         [Test]
         public void OneSpare()
         {
-            List<int> pins = new List<int> 
-            {
-                5,5,  1,1,  1,1,  1,1,  1,1, 
-                1,1,  1,1,  1,1,  1,1,  1,1 
-            };
+            List<List<int>> pins = new List<List<int>>(10);
+            pins.Add(new List<int> { 5, 5 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
+            pins.Add(new List<int> { 1, 1 });
 
             Assert.That(Game.GetScore(pins), Is.EqualTo(
                 (5+5+1) + (1 + 1) * 9));
+        }
+
+        [Test, Ignore]
+        public void allStrike()
+        {
+            List<List<int>> pins = new List<List<int>>(10);
+            pins.Add(new List<int> {10 });
+            pins.Add(new List<int> {10 });
+            pins.Add(new List<int> {10 });
+            pins.Add(new List<int> {10 });
+            pins.Add(new List<int> {10 });
+            pins.Add(new List<int> {10 });
+            pins.Add(new List<int> {10 });
+            pins.Add(new List<int> {10 });
+            pins.Add(new List<int> {10 });
+            pins.Add(new List<int> {10, 10, 10 });
+
+
+            Assert.That(Game.GetScore(pins), Is.EqualTo(
+                300));
         }
 
     }
