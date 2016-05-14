@@ -18,8 +18,8 @@ namespace BowlingGameKata
                     score += addNextScore(pins, i, 2);
                 if (IsSpare(pins[i], i))
                     score += addNextScore(pins, i, 1);
-                Console.WriteLine(score);
                 score += addGameScore(pins[i]);
+                Console.WriteLine(score);
             }
             
             return score;
@@ -51,7 +51,7 @@ namespace BowlingGameKata
             {
                 sum += pins[index + 2][0];
             }
-            else if (pins[index + 1].Count == 2 && addNum == 2)
+            else if (pins[index + 1].Count >= 2 && addNum == 2)
             {
                 sum += pins[index + 1][1];
             }

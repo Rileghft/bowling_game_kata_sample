@@ -84,7 +84,7 @@ namespace BowlingGameKata
                 (5+5+1) + (1 + 1) * 9));
         }
 
-        [Test, Ignore]
+        [Test]
         public void allStrike()
         {
             List<List<int>> pins = new List<List<int>>(10);
